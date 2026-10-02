@@ -1,17 +1,16 @@
 "use client";
-import { useRef, useState } from "react";
 import { fetchAnswers } from "@/services/answersApi";
+import { useRef, useState } from "react";
 
-// PPT notes me jo reading/meaning nahi hain, unhe AI se bharwata hai.
 export function useAnswers(setSlides) {
-  const [status, setStatus] = useState(""); // "", "loading", "error"
+  const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const ctrl = useRef(null);
 
   const enrich = async (data) => {
     const need = [...new Set(data.filter((s) => !s.reading || !s.meaning).map((s) => s.question))];
     if (!need.length) return;
-    ctrl.current?.abort(); // purani request ho to rok do
+    ctrl.current?.abort(); 
     const c = new AbortController();
     ctrl.current = c;
     setStatus("loading"); setError("");
@@ -24,7 +23,7 @@ export function useAnswers(setSlides) {
       }));
       setStatus("");
     } catch (e) {
-      if (c.signal.aborted || e.name === "AbortError") return; // logout/cancel: koi error nahi
+      if (c.signal.aborted || e.name === "AbortError") return; 
       setStatus("error"); setError(e.message);
     }
   };

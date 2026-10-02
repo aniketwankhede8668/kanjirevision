@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 
-// idx: -1 = setup, 0..total-1 = slides, total = results
 export function useSlideshow(total) {
   const [idx, setIdx] = useState(-1);
   const [seconds, setSeconds] = useState(5);

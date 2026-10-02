@@ -50,3 +50,20 @@ td.k{font-size:1.6rem}
 }
 .bar span{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
 .pdf-area{background:#fff;padding:4px}
+
+s/* Practice: flashcards, quiz, listening */
+.card{cursor:pointer;user-select:none}
+.card .back{display:grid;gap:8px;font-size:1.1rem}
+.card .back .big{font-size:2.2rem}
+.badge{display:inline-block;background:var(--sun);color:var(--ink);border-radius:999px;padding:2px 10px;font-size:.8rem}
+.opts{display:grid;gap:10px;margin-top:12px}
+.opt{background:#fff;color:var(--ink);border:1px solid var(--line);text-align:left;font-size:1.05rem}
+.opt:disabled{opacity:1;cursor:default}
+.opt.good{background:#dff3ea;border-color:var(--pine)}
+.opt.bad{background:#f8dedc;border-color:#a3261f}
+.feedback{margin-top:12px;display:grid;gap:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.speak{font-size:2.6rem;background:#fff;color:var(--pine);border:2px solid var(--pine);border-radius:50%;width:96px;height:96px;padding:0}
+
+/* Example sentence (furigana wali) */
+.example{text-align:left;line-height:1.9;margin-top:6px}

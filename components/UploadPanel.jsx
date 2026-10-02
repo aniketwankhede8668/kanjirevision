@@ -1,17 +1,27 @@
-export default function UploadPanel({ count, seconds, onSeconds, aiLoading, error, onFile, onStart }) {
+export default function UploadPanel({ count, seconds, onSeconds, aiLoading, extracting, error, onFile, onStart, onPractice, weakCount, onWeak,onExit }) {
+  const busy = aiLoading || extracting;
   return (
     <div className="panel noprint">
-      <label>Upload a PPT (.pptx)
-        <input type="file" accept=".pptx" onChange={onFile} />
+      <label>Please upload a file or image in one of the supported formats: .pptx, .xlsx, .csv, .png, .jpg, or .webp.
+        <input type="file" accept=".pptx,.xlsx,.xls,.csv,image/png,image/jpeg,image/webp" onChange={onFile} disabled={extracting} />
       </label>
       {error && <p className="err">{error}</p>}
-      {count > 0 && <p>{count} Slides found and shuffled into a random order.</p>}
-      {aiLoading && <p>Generating readings and meanings with AI...</p>}
-      <label>Slide duration (seconds)
+      {extracting && <p>Extracting Japanese vocabulary from the image...</p>}
+      {count > 0 && <p>{count} words found and arranged in random order.</p>}
+      {aiLoading && <p>AI is generating readings and meanings...</p>}
+
+      <label>How many seconds should each slide be displayed in the slideshow?
         <input type="number" min="1" max="120" value={seconds}
           onChange={(e) => onSeconds(Math.max(1, +e.target.value || 1))} />
       </label>
-      <button disabled={!count} onClick={onStart}>Start Slides</button>
+      <button disabled={!count} onClick={onStart}>Start Slideshow</button>
+
+      <div className="marks">
+        <button disabled={!count || busy} onClick={() => onPractice("flash")}>Flashcards</button>
+        <button disabled={!count || busy} onClick={() => onPractice("quiz")}>Quiz</button>
+        <button disabled={!count || busy} onClick={() => onPractice("listen")}>Listening</button>
+      </div>
+      <button className="ghost" disabled={!weakCount} onClick={onWeak}>Weak Words({weakCount})</button>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 const LABEL = { maru: "〇", batsu: "☓", skip: "ー" };
 
-export default function AnswersTable({ user, slides, status, error, onRetry, onRestart }) {
+export default function AnswersTable({ user, slides, status, error, onRetry, onRestart, onExit}) {
   const areaRef = useRef(null);
   const [pdfBusy, setPdfBusy] = useState(false);
   const [pdfError, setPdfError] = useState("");
@@ -33,10 +33,11 @@ export default function AnswersTable({ user, slides, status, error, onRetry, onR
       <div className="bar noprint">
         <h1>Answers</h1>
         <span>
-          <button disabled={loading || pdfBusy} onClick={handlePdf}>{pdfBusy ? "PDF is generating..." : "PDF download"}</button>
+          <button disabled={loading || pdfBusy} onClick={handlePdf}>{pdfBusy ? "PDF is generating..." : "PDF Download"}</button>
           <button disabled={loading} onClick={() => downloadXlsx(user, slides)}>Excel Download</button>
           <button disabled={loading} onClick={() => downloadCsv(user, slides)}>CSV Download</button>
           <button className="ghost" onClick={onRestart}>Re-Test</button>
+          <button className="ghost" onClick={onExit}>Go Back</button>
         </span>
       </div>
 
