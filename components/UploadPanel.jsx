@@ -6,9 +6,9 @@ export default function UploadPanel({ count, seconds, onSeconds, aiLoading, extr
         <input type="file" accept=".pptx,.xlsx,.xls,.csv,image/png,image/jpeg,image/webp" onChange={onFile} disabled={extracting} />
       </label>
       {error && <p className="err">{error}</p>}
-      {extracting && <p>Extracting Japanese vocabulary from the image...</p>}
-      {count > 0 && <p>{count} words found and arranged in random order.</p>}
-      {aiLoading && <p>AI is generating readings and meanings...</p>}
+      {extracting && (<p>Extracting Japanese vocabulary from the image...</p>)}
+      {aiLoading && (<p>⚡ Powering up your Japanese... Get ready to level up! 🚀</p>)}
+      {count > 0 && !aiLoading && (<p>{count} words found and arranged in random order.</p>)}
 
       <label>How many seconds should each slide be displayed in the slideshow?
         <input type="number" min="1" max="120" value={seconds}

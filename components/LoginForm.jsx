@@ -5,7 +5,7 @@ export default function LoginForm({ onLogin }) {
   const [name, setName] = useState("");
   return (
     <div className="panel login">
-      <h1>Kanji Test</h1>
+      <h1>Practice Test</h1>
       <label>Your Name
         <input value={name} onChange={(e) => setName(e.target.value)} />
       </label>

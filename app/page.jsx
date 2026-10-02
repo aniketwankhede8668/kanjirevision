@@ -87,7 +87,7 @@ export default function Page() {
       {notice && <p className="err">{notice}</p>}
 
       {practice && (
-        <Practice key={practice.id} type={practice.type} words={practice.words}
+        <Practice key={practice.id} user={user} type={practice.type} words={practice.words}
           onWeak={weak.add} onKnown={(w) => weak.remove(w.question)}
           onReview={(list) => startPractice(practice.type, list)} onExit={() => setPractice(null)} />
       )}

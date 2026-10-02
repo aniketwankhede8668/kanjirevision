@@ -12,7 +12,7 @@ export default function WeakWords({ user, list, onRemove, onClear, onPractice, o
           <button disabled={!ok2} onClick={() => onPractice("listen", list)}>Listening</button>
           <button className="ghost" disabled={!list.length} onClick={() => downloadCsv(user, list.map((w) => ({ ...w, mark: "batsu" })))}>CSV</button>
           <button className="ghost" disabled={!list.length} onClick={onClear}>Remember</button>
-          <button className="ghost" onClick={onBack}>Wapas</button>
+          <button className="ghost" onClick={onBack}>Back</button>
         </span>
       </div>
       {list.length === 0 ? <p>No weak words available yet..</p> : (

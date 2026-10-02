@@ -23,7 +23,7 @@ td.k{font-size:1.6rem}
 @media print{.noprint{display:none!important}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){.timer{animation:none}}
 
-/* Login: chhota card, page ke bilkul center me */
+/* Login: */
 .center{min-height:100vh;display:grid;place-items:center;padding:16px}
 .login{width:100%;max-width:340px;padding:20px;gap:12px}
 .login h1{font-size:1.2rem;text-align:center}
@@ -40,7 +40,7 @@ td.k{font-size:1.6rem}
 .summary div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;font-size:.85rem}
 .summary b{display:block;font-size:1.5rem}
 
-/* Sirf PDF/print me dikhne wala header */
+/* PDF/print header */
 .print-only{display:none}
 @media print{
   .print-only{display:block}
